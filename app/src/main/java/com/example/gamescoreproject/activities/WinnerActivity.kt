@@ -53,24 +53,19 @@ class WinnerActivity : AppCompatActivity() {
             val secondTeamScore = intent.getIntExtra("secondTeamScore", 0)
             binding.tvWinnerTeam.text = firstTeamName
             binding.tvLoserTeam.text = secondTeamName
-            binding.tvResult.text = String.format("%d:%d", firstTeamScore, secondTeamScore)
+            binding.tvResult.text = String.format("d:d", firstTeamScore, secondTeamScore)
             binding.tvWinner.text = getString(R.string.first_team)
             binding.tvLoser.text = getString(R.string.second_team)
         }
     }
 
     private fun sendData() {
-        val firstTeamScoreShare =
-            binding.tvResult.text.substring(0, binding.tvResult.text.indexOf(":"))
-        val secondTeamScoreShare =
-            binding.tvResult.text.substring(binding.tvResult.text.indexOf(":") + 1,
-                binding.tvResult.text.length)
         val shareIntent = Intent().apply {
             this.action = Intent.ACTION_SEND
             this.putExtra(
                 Intent.EXTRA_TEXT,
-                "${binding.tvWinner.text}: ${binding.tvWinnerTeam.text}\n${binding.tvLoser.text}: ${binding.tvLoserTeam.text}\n"
-                        + "Result of match: ${firstTeamScoreShare}:${secondTeamScoreShare}"
+                "${binding.tvWinner.text}:${binding.tvWinnerTeam.text}\n${binding.tvLoser.text}:${binding.tvLoserTeam.text}\n"
+                        + "Result of match: ${binding.tvResult.text}"
             )
             this.type = "text/plain"
         }
