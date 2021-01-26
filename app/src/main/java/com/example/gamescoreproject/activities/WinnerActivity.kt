@@ -43,7 +43,7 @@ class WinnerActivity : AppCompatActivity() {
             val loserScore = intent.getIntExtra("loserScore", 0)
             binding.tvWinnerTeam.text = winnerName
             binding.tvLoserTeam.text = loserName
-            binding.tvResult.text = String.format("d:d", winnerScore, loserScore)
+            binding.tvResult.text = String.format("%d:%d", winnerScore, loserScore)
             binding.tvWinner.text = getString(R.string.winner)
             binding.tvLoser.text = getString(R.string.loser)
         } else {
@@ -53,7 +53,7 @@ class WinnerActivity : AppCompatActivity() {
             val secondTeamScore = intent.getIntExtra("secondTeamScore", 0)
             binding.tvWinnerTeam.text = firstTeamName
             binding.tvLoserTeam.text = secondTeamName
-            binding.tvResult.text = String.format("d:d", firstTeamScore, secondTeamScore)
+            binding.tvResult.text = String.format("%d:%d", firstTeamScore, secondTeamScore)
             binding.tvWinner.text = getString(R.string.first_team)
             binding.tvLoser.text = getString(R.string.second_team)
         }
